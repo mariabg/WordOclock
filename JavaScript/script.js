@@ -1,7 +1,7 @@
 /*EASTER EGG*/
 var easter_egg = new Konami();
 easter_egg.code = function() {
-	document.getElementById("pageStyle").setAttribute("href", "KonamiStyle.css");
+	document.getElementById("pageStyle").setAttribute("href", "Style/KonamiStyle.css");
 }
 easter_egg.load();
 
