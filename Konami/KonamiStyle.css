@@ -1,0 +1,136 @@
+/*DEFINIR CON LESS UN COLOR QUE SEA LA TANSICION DE VARIOS COLORES Y QUE SE CONVIERTA CON UN MEDIA QUERY EN EL COLOR DE LA LETRA DE .light*/
+*{
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	letter-spacing: 0px;
+	background-color: #14363e;
+	white-space: nowrap;
+}
+
+#clock {
+	position: absolute;
+	width: 440px;
+	height: 350px;
+	margin-top: 100px;
+	margin-left: 35%;
+}
+.row {
+	margin-top: 5%;
+}
+.dark {	
+	display: inline-block;
+	float: left;
+	clear: none;
+	letter-spacing: 30px;
+	font-family: Courier, monospace;
+	color: #08262B;
+	font-size: 16px;
+}
+.light {
+	display: inline-block;
+	float: left;
+	clear: none;
+	letter-spacing: 30px;
+	font-family: Courier, monospace;
+	color: red;
+	font-size: 16px;
+}
+#octocat {
+	position: absolute;
+	top: 0px;	
+	right: 100px;
+	width: 110px;
+	height: 160px;
+	display: block;
+}
+
+#fork{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0px;	
+	right: 0px;
+	display: block;
+}
+#footer {
+	font-family: "HelveticaFinal";
+	font-size: 12px;
+	color: #257586;
+	text-align: center;
+	
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 35px;
+}
+
+@media screen and (max-width: 700px) {
+	#clock {
+	margin-left: 17%;
+	margin-top: 70px;
+	}
+	#octocat {
+		right: 70px;
+		width: 60px;
+		height: 95px;
+	}
+	#fork {
+		width: 70px;
+		height: 70px;
+	}
+}
+@media screen and (max-width: 530px) {
+	#clock {
+	margin-right: 5%;
+	margin-left: 10%;
+	margin-top: 40px;
+	}
+	.dark, .light, .konami {
+		letter-spacing: 30px;
+		font-size: 12px;
+	}
+	#octocat {
+		right: 50px;
+		width: 50px;
+		height: 80px;
+	}
+	#fork {
+		width: 60px;
+		height: 60px;
+	}
+	#footer {
+		font-size: 10px;
+		height: 30px;
+	}
+}
+@media screen and (max-width: 420px) {
+	#clock {
+	width: 340px;
+	height: 250px;
+	position: absolute;
+	margin-right: 6%;
+	margin-left: 15%;
+	margin-top: 40px;
+	}
+	.row {
+		margin-top: 2%;
+	}
+	.dark, .light, .konami {
+		letter-spacing: 15px;
+		font-size: 12px;
+	}
+	#octocat {
+		right: 50px;
+		width: 40px;
+		height: 70px;
+	}
+	#fork {
+		width: 40px;
+		height: 40px;
+	}
+	#footer {
+		font-size: 10px;
+		height: 30px;
+	}
+}
