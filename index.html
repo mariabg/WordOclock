@@ -1,10 +1,19 @@
+
+
+<!--
+	CREAR CARPETA DE IMG Y STYLESHEETS
+	CAMBIAR LA ANIMACION OCHENTERA, ESCOGER MEJOR COLERES Y METERLE FLOOOOOW
+-->
+
+
 <!DOCTYPE html>
 <html>
 <head>
+	<title>WordClock</title>
 	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="description" content="WordClock by @_mariabg.">
 	<!-FIX THIS!!!->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 	<link href="Style/defaultStyle.css" rel="stylesheet" id="pageStyle"/>
 </head>
 <body onload="clock">
@@ -13,38 +22,40 @@
 			<div class="dark" id="it">IT</div>
 			<div class="dark">L</div>
 			<div class="dark" id="is">IS</div>
-			<div class="dark" id="hey">KONAMI</div>
+			<div class="dark" id="konami">KONAMI</div>
 		</div>
 		<br>
 		<div class="row">
-			<div class="dark">AC</div>
+			
 			<div class="dark" id="quarter">QUARTER</div>
-			<div class="dark">P</div>
-			<div class="dark" id="konami">C</div>
+			<div class="dark" id="ten1">TEN</div>
+			
+			<div class="dark" id="code1">C</div>
 		</div>
 		<br>
 		<div class="row">
 			<div class="dark" id="twenty">TWENTY</div>
 			<div class="dark" id="five1">FIVE</div>
-			<div class="dark" id="konami">O</div>
+			<div class="dark" id="code2">O</div>
 		</div>
 		<br>
 		<div class ="row">
 			<div class="dark" id="half">HALF</div>
 			<div class="dark" id="to">TO</div>
 			<div class="dark" id="past">PAST</div>
-			<div class="dark" id="konami">D</div>
-		</div>
-		<br>
-		<div class ="row">
-			<div class="dark" id="ten1">TEN</div>
-			<div class="dark" id="none">DQP</div>
-			<div class="dark" id="nine">NINE</div>
-			<div class="dark" id="konami">E</div>
+			<div class="dark" id="code3">D</div>
 		</div>
 		<br>
 		<div class ="row">
 			<div class="dark" id="one">ONE</div>
+			<div class="dark">AC</div>
+			<div class="dark" id="nine">NINE</div>
+			<div class="dark">P</div>
+			<div class="dark" id="code4">E</div>
+		</div>
+		<br>
+		<div class ="row">
+			<div class="dark" id="none">DQP</div>
 			<div class="dark" id="three">THREE</div>
 			<div class="dark" id="six">SIX</div>	
 		</div>
@@ -72,13 +83,14 @@
 		</div>
 	</div>
 	<img src="Images/forkme.png" id="fork"/>
-	<a href="https://github.com/mariabg/WordClock"><img src="Images/spidertocat.png"  id="octocat"/></a>
+	<a href="https://github.com/mariabg/WordOClock"><img src="Images/spidertocat.png"  id="octocat"/></a>
 	<div id="footer">Handcrafted by @_mariabg</div>
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="jQuery.js"><\/script>')</script>
-	<script src="Konami/Konami.js" type="text/javascript"></script>
+	<script>window.jQuery || document.write('<script src="JavaScript/jQuery.js"><\/script>')</script>
+	<script src="JavaScript/Konami.js" type="text/javascript"></script>
 	<script src="JavaScript/jQueryGitHub.js" type="text/javascript"></script>
-	<script src="JavaScript/script.js" type="text/javascript"></script>
+	<script src="Style/less.js" type="text/javascript"></script>
+	<script src="JavaScript/Script.js" type="text/javascript"></script>
 </body>
 </html>

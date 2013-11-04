@@ -1,27 +1,42 @@
-//EASTER EGG, Konami Code
+/*EASTER EGG*/
+
 var easter_egg = new Konami();
-//Once the Konami Code is entered, we swap the StyleSheet, stop the Default Clock and start running the Konami Clock instead (code at the bottom)
 easter_egg.code = function() {
-	document.getElementById("pageStyle").setAttribute("href", "Style/KonamiStyle.less");
-	function stopDefaultClock() {
-		clearInterval(clock);
-	}
-	stopDefaultClock()
-	var konamiClock = setInterval(function(){progKonami()},2000); //Runs every 2segs due to the animations. Will be fixed in folling versions.
+	document.getElementById("pageStyle").setAttribute("href", "Style/KonamiStyle.less"); 
 }
 easter_egg.load();
+/*
+para que cambie el color en plan random, puedo hacer que un numero vaya cambiando en plan del 1 al 5, que cuando llegue al cinco vuelva al uno y empiece otra vez a subir hasta el 5. Si cada numero corresponde a un id o class puedo hacer que cambie asi de color.
 
-//DefaultPrograme
+
+cambiar el valor de un id que solo lo haya en konamiStyle
+
+
+tengo que repensar eso xD
+
+
+*/
+
+/*Programe itself*/
 var clock = setInterval(function(){prog()},1000);
 var prog = function() { 
-	$(".light").removeClass("light").addClass("dark"); //sets all the characters light characters to dark 
-    var date = new Date(); //Updates the time
+	
+/*BROKEN; returning NaN
+	var color = parseInt(color) + 1;
+	if (color == 5){
+		var color = 0;
+	}
+	console.log (color);
+	*/
+	
+	$(".light").removeClass("light").addClass("dark"); //sets all the characters to dark light
+	$(".Kdark" + num)removeClass("light").addClass("dark");
+    var date = new Date();
 	var time = {
 		hour: date.getHours(),
 		minute: date.getMinutes()
 	};
 	//console.log(time);
-	//Splits up time by minutes
 	switch (time.minute){
 		case 58: case 59:
 			var showMin = "oclock";
@@ -49,6 +64,7 @@ var prog = function() {
 		case 18: case 19: case 20: case 21: case 22:
 			var showMin = "twenty";
 			var befORaft = "past";
+			
 			var showHour = time.hour;
 			break;
 		case 23: case 24: case 25: case 26: case 27:
@@ -91,7 +107,6 @@ var prog = function() {
 		showHour = 0;
 	}
 	//console.log (showHour);
-	//Splits up time by hours
 	switch (showHour){
 		case 0: case 12:
 			var showHour = "twelve";
@@ -130,7 +145,6 @@ var prog = function() {
 			var showHour = "one";
 			break;
 	}
-	//"Turns on" the characters
 	$("#it").removeClass("dark").addClass("light");
 	$("#is").removeClass("dark").addClass("light");
 	$("#" + befORaft).removeClass("dark").addClass("light");
@@ -145,30 +159,3 @@ var prog = function() {
 		});
 	}
   }
-
-//Code called after de konami code (see top)
-progKonami = function(){
-	prog();
-		$(".light").css('color', '#ac5639')
-		$(".light").css('text-shadow', '4px 5px 3px black');
-		$("#konami, #code1, #code2, #code3, #code4").css('color', '#d278cb');
-		$("#konami, #code1, #code2, #code3, #code4").css('text-shadow', 'none');
-	setTimeout(function(){
-		$(".light").css('color', '#287951');
-		$(".light").css('text-shadow', 'none');
-		$("#konami, #code1, #code2, #code3, #code4").css('color', '#ac5639 ');
-		$("#konami, #code1, #code2, #code3, #code4").css('text-shadow', '4px 5px 3px black');
-	},500);
-	setTimeout(function(){
-		$(".light").css('color', '#c6cc66');
-		$(".light").css('text-shadow', '4px 5px 3px black');
-		$("#konami, #code1, #code2, #code3, #code4").css('color', '#287951');
-		$("#konami, #code1, #code2, #code3, #code4").css('text-shadow', 'none');
-	},1000);
-	setTimeout(function(){
-		$(".light").css('color', '#d278cb');
-		$(".light").css('text-shadow', 'none');
-		$("#konami, #code1, #code2, #code3, #code4").css('color', '#c6cc66');
-		$("#konami, #code1, #code2, #code3, #code4").css('text-shadow', '4px 5px 3px black');
-	},1500);
-};

@@ -37,8 +37,25 @@
 	color: #57BED4;
 	font-size: 16px;
 }
-#octocat, #fork {
-	display: none;
+#octocat {
+	position: absolute;
+	top: 0px;	
+	right: 90px;
+	display: block;
+	background: none;
+	
+	width: 145px;
+	height: 210px;
+}
+#fork{
+	position: absolute;
+	top: 0px;	
+	right: 0px;
+	display: block;
+	background: none;
+	
+	width: 120px;
+	height: 120px;
 }
 #footer {
 	font-family: "HelveticaFinal";
@@ -51,21 +68,40 @@
 	width: 100%;
 	height: 35px;
 }
+
 @media screen and (max-width: 700px) {
 	#clock {
-	margin-left: 17%;
-	margin-top: 70px;
-	}	
+		margin-left: 17%;
+		margin-top: 70px;
+	}
+	#octocat {
+		right: 70px;
+		width: 60px;
+		height: 95px;
+	}
+	#fork {
+		width: 70px;
+		height: 70px;
+	}
 }
 @media screen and (max-width: 530px) {
 	#clock {
-	margin-right: 5%;
-	margin-left: 10%;
-	margin-top: 40px;
+		margin-right: 5%;
+		margin-left: 10%;
+		margin-top: 40px;
 	}
-	.dark, .light {
+	.dark, .light, .konami {
 		letter-spacing: 30px;
 		font-size: 12px;
+	}
+	#octocat {
+		right: 50px;
+		width: 50px;
+		height: 80px;
+	}
+	#fork {
+		width: 60px;
+		height: 60px;
 	}
 	#footer {
 		font-size: 10px;
@@ -74,19 +110,28 @@
 }
 @media screen and (max-width: 420px) {
 	#clock {
-	width: 340px;
-	height: 250px;
-	position: absolute;
-	margin-right: 6%;
-	margin-left: 15%;
-	margin-top: 40px;
+		width: 340px;
+		height: 250px;
+		position: absolute;
+		margin-right: 6%;
+		margin-left: 15%;
+		margin-top: 40px;
 	}
 	.row {
 		margin-top: 2%;
 	}
-	.dark, .light {
+	.dark, .light, .konami {
 		letter-spacing: 15px;
 		font-size: 12px;
+	}
+	#octocat {
+		right: 50px;
+		width: 40px;
+		height: 70px;
+	}
+	#fork {
+		width: 40px;
+		height: 40px;
 	}
 	#footer {
 		font-size: 10px;

@@ -1,15 +1,10 @@
 $(document).ready(function(){
-   $("#octocat").mouseenter(function(){
-	  $(this).animate({
-		   height: '+=20px',
-		   width: '+=20px'
-	 }); 
+   $("#octocat").hover(function(){
+	  $(this).stop(true, false).animate({ width: '165px', height: '240px'});
+	  },
+	function(){
+	  $(this).stop(true, false).animate({ width: '145px', height: '210px'});
+	  $(this).css('width', ' ');
+	  $(this).css('height', ' ');
+	  });
    });
-    $("#octocat").mouseleave(function(){
-	  $(this).animate({
-		   height: '-=20px',
-		   width: '-=20px'
-	 }); 
-	
-   });
-});
