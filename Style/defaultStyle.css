@@ -5,6 +5,10 @@
 	background-color: #14363e;
 	white-space: nowrap;
 	letter-spacing: 0px;
+	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
 }
 #clock {
 	position: absolute;
@@ -16,12 +20,6 @@
 }
 .row {
 	margin-top: 5%;
-	-webkit-touch-callout: none;
-    	-webkit-user-select: none;
-	-khtml-user-select: none;
-    	-moz-user-select: none;
-    	-ms-user-select: none;
-    	user-select: none;
 }
 .dark {	
 	display: inline-block;
