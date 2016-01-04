@@ -2,7 +2,7 @@
 var easter_egg = new Konami();
 //Once the Konami Code is entered, we swap the StyleSheet, stop the Default Clock and start running the Konami Clock instead (code at the bottom)
 easter_egg.code = function() {
-	document.getElementById("pageStyle").setAttribute("href", "Style/KonamiStyle.less");
+	document.getElementById("pageStyle").setAttribute("href", "Style/KonamiStyle.css");
 	function stopDefaultClock() {
 		clearInterval(clock);
 	}
