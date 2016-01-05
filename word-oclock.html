@@ -1,0 +1,323 @@
+<dom-module id='word-oclock'>
+<style>
+  .clock {
+    height: 450px;
+    width: 450px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+</style>
+<template>
+  <div class='clock'>
+  		<div class='row'>
+  			<div class='itis'>I</div>
+        <div class='itis'>T</div>
+  			<div>L</div>
+  			<div>B</div>
+        <div class='itis'>I</div>
+        <div class='itis'>S</div>
+        <div>N</div>
+        <div>S</div>
+        <div>L</div>
+        <div>E</div>
+        <div>W</div>
+  		</div>
+
+  		<div class='row'>
+  			<div class='quarter'>Q</div>
+        <div class='quarter'>U</div>
+        <div class='quarter'>A</div>
+        <div class='quarter'>R</div>
+        <div class='quarter'>T</div>
+        <div class='quarter'>E</div>
+        <div class='quarter'>R</div>
+        <div class='ten1'>T</div>
+        <div class='ten1'>E</div>
+        <div class='ten1'>N</div>
+  		</div>
+
+  		<div class='row'>
+        <div class='twenty'>T</div>
+        <div class='twenty'>W</div>
+        <div class='twenty'>E</div>
+        <div class='twenty'>N</div>
+        <div class='twenty'>T</div>
+        <div class='twenty'>Y</div>
+        <div>O</div>
+  			<div class='five1'>F</div>
+        <div class='five1'>I</div>
+        <div class='five1'>V</div>
+        <div class='five1'>E</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div class='half'>H</div>
+        <div class='half'>A</div>
+        <div class='half'>L</div>
+        <div class='half'>F</div>
+  			<div class='to'>T</div>
+        <div class='to'>O</div>
+        <div>D</div>
+        <div class='past'>P</div>
+        <div class='past'>A</div>
+        <div class='past'>S</div>
+        <div class='past'>T</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div class='ten2'>T</div>
+        <div class='ten2'>E</div>
+        <div class='ten2'>N</div>
+  			<div class='one'>O</div>
+        <div class='one'>N</div>
+        <div class='one'>E</div>
+  			<div class='nine'>N</div>
+        <div class='nine'>I</div>
+        <div class='nine'>N</div>
+        <div class='nine'>E</div>
+  			<div>E</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div>D</div>
+        <div>Q</div>
+  			<div class='three'>T</div>
+        <div class='three'>H</div>
+        <div class='three'>R</div>
+        <div class='three'>E</div>
+        <div class='three'>E</div>
+        <div>P</div>
+  			<div class='six'>S</div>
+        <div class='six'>I</div>
+        <div class='six'>X</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div class='four'>F</div>
+        <div class='four'>O</div>
+        <div class='four'>U</div>
+        <div class='four'>R</div>
+  			<div class='five2'>F</div>
+  			<div class='five2'>I</div>
+  			<div class='five2'>V</div>
+  			<div class='five2'>E</div>
+  			<div class='two'>T</div>
+        <div class='two'>W</div>
+        <div class='two'>O</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div class='eight'>E</div>
+        <div class='eight'>I</div>
+        <div class='eight'>G</div>
+        <div class='eight'>H</div>
+        <div class='eight'>T</div>
+  			<div class='eleven'>E</div>
+        <div class='eleven'>L</div>
+        <div class='eleven'>E</div>
+        <div class='eleven'>V</div>
+        <div class='eleven'>E</div>
+        <div class='eleven'>N</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div class='seven'>S</div>
+        <div class='seven'>E</div>
+        <div class='seven'>V</div>
+        <div class='seven'>E</div>
+        <div class='seven'>N</div>
+  			<div class='twelve'>T</div>
+        <div class='twelve'>W</div>
+        <div class='twelve'>E</div>
+        <div class='twelve'>L</div>
+        <div class='twelve'>V</div>
+        <div class='twelve'>E</div>
+  		</div>
+
+  		<div class ='row'>
+  			<div>H</div>
+        <div>E</div>
+        <div>Y</div>
+  			<div class='oclock'>O</div>
+        <div class='oclock'>C</div>
+        <div class='oclock'>L</div>
+        <div class='oclock'>O</div>
+        <div class='oclock'>C</div>
+        <div class='oclock'>K</div>
+  			<div>M</div>
+        <div>B</div>
+  		</div>
+  	</div>
+</template>
+
+
+<script>
+  'use strict';
+
+  (function(){Polymer({
+    is: 'word-oclock',
+  });
+  })();
+
+  // as the clock changes every five mins, as soon as it changed once,
+  // that is to say, time.minute%5 == 3,  we will reset the interval to 5min
+  let shortInterval = true;
+  let initialClock = setInterval(function(){prog()}, 1000);
+  let clock = setInterval(function(){prog()}, 300000);
+
+  function prog() {
+    let date = new Date(); //Updates the time
+  	let time = {
+  		hour: date.getHours(),
+  		minute: date.getMinutes()
+  	};
+    let showHour = time.hour;
+    let showMin, befORaft;
+
+    // change to a longer interval when possible
+    if((time.minute % 5 == 3) && shortInterval){
+      shortInterval = false;
+      clearInterval(initialClock);
+    }
+
+  	//Splits up time by minutes
+  	switch (time.minute){
+  		case 58: case 59:
+  			showMin = 'oclock';
+  			showHour++;
+  			break;
+  		case 0: case 1: case 2:
+  			showMin = 'oclock';
+  			break;
+  		case 3: case 4: case 5: case 6: case 7:
+  			showMin = 'five1';
+  			befORaft = 'past';
+  			break;
+  		case 8: case 9: case 10: case 11: case 12:
+  			showMin = 'ten1';
+  			befORaft = 'past';
+  			break;
+  		case 13: case 14: case 15: case 16: case 17:
+  			showMin = 'quarter';
+  			befORaft = 'past';
+  			break;
+  		case 18: case 19: case 20: case 21: case 22:
+  			showMin = 'twenty';
+  			befORaft = 'past';
+  			break;
+  		case 23: case 24: case 25: case 26: case 27:
+  			showMin = 'twentyfive';
+  			befORaft = 'past';
+  			break;
+  		case 28: case 29: case 30: case 31: case 32:
+  			showMin = 'half';
+  			befORaft = 'past';
+  			break;
+  		case 33: case 34: case 35: case 36: case 37:
+  			showMin = 'twentyfive';
+  			befORaft = 'to';
+  			showHour++;
+  			break;
+  		case 38: case 39: case 40: case 41: case 42:
+  			showMin = 'twenty';
+  			befORaft = 'to';
+  			showHour++;
+  			break;
+  		case 43: case 44: case 45: case 46: case 47:
+  			showMin = 'quarter';
+  			befORaft = 'to';
+  			showHour++;
+  			break;
+  		case 48: case 49: case 50: case 51: case 52:
+  			showMin = 'ten1';
+  			befORaft = 'to';
+  			showHour++;
+  			break;
+  		case 53: case 54: case 55: case 56: case 57:
+  			showMin = 'five1';
+  			befORaft = 'to';
+  			showHour++;
+  			break;
+  	}
+
+  	if (showHour == 24 ) {
+  		showHour = 0;
+  	}
+
+  	//Splits up time by hours
+  	switch (showHour){
+  		case 0: case 12:
+  			showHour = 'twelve';
+  			break;
+  		case 23: case 11:
+  			showHour =  'eleven';
+  			break;
+  		case 22: case 10:
+  			showHour = 'ten2';
+  			break;
+  		case 21: case 9:
+  			showHour = 'nine';
+  			break;
+  		case 20: case 8:
+  			showHour = 'eight';
+  			break;
+  		case 19: case 7:
+  			showHour = 'seven';
+  			break;
+  		case 18: case 6:
+  			showHour = 'six';
+  			break;
+  		case 17: case 5:
+  			showHour = 'five2';
+  			break;
+  		case 16: case 4:
+  			showHour = 'four';
+  			break;
+  		case 15: case 3:
+  			showHour = 'three';
+  			break;
+  		case 14: case 2:
+  			showHour = 'two';
+  			break;
+  		case 13: case 1:
+  			showHour = 'one';
+  			break;
+  	}
+
+    // If you change the word color, make sure 'default' coincides with the new one
+    let lightColor = 'orange';
+    let defaultColor = 'black';
+
+    // create variable 'element' in order to avoid the keyword 'this'
+    let element = document.querySelector('word-oclock');
+
+    // resets the lighten items and colors them according to the new time
+    colorWords(element.querySelectorAll('div'), defaultColor);
+    colorWords(element.querySelectorAll('.itis'), lightColor);
+    colorWords(element.querySelectorAll('.' + showHour), lightColor);
+    colorWords(element.querySelectorAll('.' + befORaft), lightColor);
+    if (showMin == 'twentyfive'){
+      colorWords(element.querySelectorAll('.twenty'), lightColor);
+      colorWords(element.querySelectorAll('.five1'), lightColor);
+    }
+  	else {
+      colorWords(element.querySelectorAll('.' + showMin), lightColor);
+    }
+
+    // gets the array of divs and the color as parameters
+    function colorWords (wordArray, color) {
+      for (let i = 0; i<wordArray.length; i++){
+          wordArray[i].style.color = color;
+      }
+    }
+  }
+</script>
+</dom-module>
